@@ -1,1 +1,9 @@
 venv
+
+__pycache__/
+/opt
+
+__pycache__
+.*pyc
+__init_.py
+.idea
