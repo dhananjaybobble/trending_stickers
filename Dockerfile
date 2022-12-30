@@ -1,10 +1,12 @@
-FROM alpine:3.14
+FROM python:3.8-slim-buster
 
-WORKDIR /api-server
+WORKDIR /Sample2
 
 RUN apt-get update && apt-get install -y python3 python3-dev python3-pip
 
-COPY requirements.txt requirements.txt
-RUN pip3 install -r requirements.txt
+COPY requirement.txt requirement.txt
+RUN pip3 install -r requirement.txt
 
-CMD ["gunicorn", "--workers=4", "--worker-class=gevent", "--threads=4", "--bind=0.0.0.0:8111", "--access-logfile=-", "--error-logfile=-", "--log-level=debug", "wsgi:application"]
+
+EXPOSE 5000
+CMD [ "python", "-m", "flask", "run"]

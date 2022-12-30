@@ -1,4 +1,7 @@
 from datetime import datetime
+
+from sqlalchemy import desc
+
 from models.models import Sticker
 from flask import jsonify
 
