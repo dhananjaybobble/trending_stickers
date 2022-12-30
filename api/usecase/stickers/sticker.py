@@ -5,7 +5,6 @@ def get_sticker():
     try:
         stickers_data = stickers.get_trending_sticker()
         sticker_list_info = []
-
         for sticker in stickers_data:
             sticker_dict = {}
             sticker_dict['name'] = sticker.name

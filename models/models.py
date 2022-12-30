@@ -9,4 +9,4 @@ class Sticker(db.Model):
     name = db.Column(db.String(50), nullable=False)
     image_url = db.Column(db.String(200), nullable=False)
     priority = db.Column(db.Integer, nullable=False)
-    time_of_day = db.Column(db.DateTime, server_default=func.now(), nullable=False)
+    time_of_day = db.Column(db.String(100), nullable=False)
