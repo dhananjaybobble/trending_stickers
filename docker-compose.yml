@@ -1,14 +1,24 @@
 version: '3.4'
 services:
+  api:
+    restart: on-failure
+    build:
+      dockerfile: Dockerfile
+      context: .
+    image: sample
+    ports:
+      - "5000:5000"
+
   mysql:
-    container_name: MySQL
+    container_name: mysql_sample
     restart: always
     image: mysql:5.6
     environment:
       MYSQL_ROOT_PASSWORD: '123456'
-      MYSQL_USER: 'root'
+      MYSQL_USER: 'mid'
       MYSQL_PASS: '123456'
+      MYSQL_DATABASE: 'trendingStickers'
     volumes:
-      - ./mysql-5.6.1:/var/lib/mysql
+      - /tmp/sticker-sql-data:/var/lib/mysql
     ports:
-      - 3307:3306
+      - 3309:3306

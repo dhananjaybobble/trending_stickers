@@ -20,7 +20,7 @@ def get_trending_sticker():
     else:
         time_of_day = 'night'
 
-    stickers = Sticker.query.filter(Sticker.time_of_day == time_of_day).order_by(desc(Sticker.priority)).all()
+    stickers = Sticker.query.filter(Sticker.time_of_day == time_of_day).order_by(Sticker.priority).all()
     # sorted_by_priority = sorted(stickers, key=lambda x: x.priority)
-
+    #print(stickers)
     return stickers
